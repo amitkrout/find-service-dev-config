@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: backend
+  namespace: find-my-relative
+spec:
+  template:
+    spec:
+      containers:
+        - image: image-registry.openshift-image-registry.svc:5000/find-my-relative/backend:latest
+          envFrom:
+            - configMapRef:
+                name: erd-urls
