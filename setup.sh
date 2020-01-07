@@ -41,8 +41,8 @@ if [ ! -f "${FILENAME}" ]; then
 fi
 
 sed $SED_OPTIONS "s|REPLACE_IMAGE|${IMAGE_REPO}|g" deploy/*.yaml pipelines/**/*.yaml
-sed $SED_OPTIONS "s|PULL_SECRET_NAME|${PULL_SECRET_NAME}|g" pipelines/01-serviceaccount/serviceaccount.yaml deploy/*.yaml
+sed $SED_OPTIONS "s|PULL_SECRET_NAME|${PULL_SECRET_NAME}|g" pipelines/02-serviceaccount/serviceaccount.yaml deploy/*.yaml
 sed $SED_OPTIONS "s|QUAYIO_USERNAME|${QUAYIO_USERNAME}|g" pipelines/bootstrap.sh
 sed $SED_OPTIONS "s|DOCKER_CONFIG_NAME|${DOCKER_CONFIG_NAME}|g" pipelines/bootstrap.sh
-sed $SED_OPTIONS "s|GITHUB_REPO|${GITHUB_REPO}|g" pipelines/06-eventlisteners/cicd-event-listener.yaml
-sed $SED_OPTIONS "s|GITHUB_STAGE_REPO|${GITHUB_STAGE_REPO}|g" pipelines/06-eventlisteners/cicd-event-listener.yaml pipelines/argocd/argo-app.yaml
+sed $SED_OPTIONS "s|GITHUB_REPO|${GITHUB_REPO}|g" pipelines/07-eventlisteners/cicd-event-listener.yaml
+sed $SED_OPTIONS "s|GITHUB_STAGE_REPO|${GITHUB_STAGE_REPO}|g" pipelines/07-eventlisteners/cicd-event-listener.yaml pipelines/argocd/argo-app.yaml
